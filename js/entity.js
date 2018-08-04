@@ -18,6 +18,6 @@ class Bullet extends Entity {
 
 class Player extends Entity {
     constructor() {
-
+        super();
     }
 }

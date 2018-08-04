@@ -17,7 +17,5 @@
     "url": "https://github.com/luni3359/touhou-game/issues"
   },
   "homepage": "https://github.com/luni3359/touhou-game#readme",
-  "devDependencies": {
-    "jquery": "^3.3.1"
-  }
+  "devDependencies": {}
 }
