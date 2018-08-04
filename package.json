@@ -1,0 +1,23 @@
+{
+  "name": "touhou-game",
+  "version": "1.0.0",
+  "description": "This game aims to be as efficient and accurate to touhou games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luni3359/touhou-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luni3359/touhou-game/issues"
+  },
+  "homepage": "https://github.com/luni3359/touhou-game#readme",
+  "devDependencies": {
+    "jquery": "^3.3.1"
+  }
+}

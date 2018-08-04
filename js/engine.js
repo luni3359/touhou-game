@@ -1,15 +1,35 @@
-function Vector2D() {
-    this.x = 0;
-    this.y = 0;
+"use strict";
+const touhouGame = {
+    name: "touhou",
+    resolution: {},
+    canvas: null,
+    start: startGame
+};
+
+/**
+ * Checks whether or not the canvas exists and, if it isn't
+ * then create it.
+ */
+function checkCanvas() {
+    if (!document.querySelector("canvas.danmaku")) {
+        // Set resolution
+        touhouGame.resolution = { w: 800, h: 600 };
+
+        // Make canvas element
+        touhouGame.canvas = document.createElement("canvas");
+        touhouGame.canvas.id = touhouGame.name;
+        touhouGame.canvas.classList.add("danmaku");
+        touhouGame.canvas.width = touhouGame.resolution.w;
+        touhouGame.canvas.height = touhouGame.resolution.h;
+
+        // Add to DOM
+        document.body.appendChild(touhouGame.canvas);
+    }
 }
 
-function Dimension() {
-    this.w = 0;
-    this.h = 0;
-}
-
-function Sprite() {
-    this.position = new Vector2D();
-    this.dimension = new Dimension();
-    this.url = null;
+/**
+ * Start the game
+ */
+function startGame() {
+    checkCanvas();
 }
