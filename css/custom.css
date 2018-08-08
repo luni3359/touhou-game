@@ -23,4 +23,5 @@ canvas.danmaku {
     border-style: solid;
     border-width: 1px;
     border-color: #000;
+    cursor: crosshair;
 }

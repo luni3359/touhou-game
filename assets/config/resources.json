@@ -1,0 +1,46 @@
+{
+    "sprites": {
+        "reimu": {
+            "elements": {
+                "character": {
+                    "position": [
+                        4,
+                        25
+                    ],
+                    "size": [
+                        26,
+                        44
+                    ]
+                }
+            },
+            "sources": {
+                "local": "./assets/img/reimu.png",
+                "mirrors": [
+                    "https://www.spriters-resource.com/resources/sheets/31/33545.png"
+                ]
+            }
+        },
+        "main-menu": {
+            "elements": {
+                "loading-screen": {
+                    "position": [
+                        596,
+                        3041
+                    ],
+                    "size": [
+                        640,
+                        480
+                    ]
+                }
+            },
+            "sources": {
+                "local": "./assets/img/menu.png",
+                "mirrors": [
+                    "https://www.spriters-resource.com/resources/sheets/31/33552.png"
+                ]
+            }
+        }
+    },
+    "music": {},
+    "sfx": {}
+}

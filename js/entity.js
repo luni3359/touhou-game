@@ -10,13 +10,20 @@ class Entity {
     }
 }
 
-class Bullet extends Entity {
+class CircleCollision extends Entity {
+    constructor(rad) {
+        super();
+        this.radius = rad;
+    }
+}
+
+class Bullet extends CircleCollision {
     constructor() {
         super();
     }
 }
 
-class Player extends Entity {
+class Player extends CircleCollision {
     constructor() {
         super();
     }

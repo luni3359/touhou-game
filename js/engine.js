@@ -1,4 +1,6 @@
 "use strict";
+let resources;
+
 class GameInstance {
     /**
      * Creates a Touhou game manager
@@ -6,7 +8,7 @@ class GameInstance {
     constructor() {
         // Meta
         this.name = "touhou";
-        this.readyToStart = null; // a Promise
+        this.readyToStart = this.preloadResources(); // preload!
 
         // Display
         this.resolution = { w: 640, h: 480 };
@@ -15,9 +17,6 @@ class GameInstance {
 
         // dummy var
         this.menusprite = null;
-
-        // Start loading pictures
-        this.preloadResources();
     }
 
     /**
@@ -43,32 +42,52 @@ class GameInstance {
      * To minimize delays start preloading as soon as possible
      */
     preloadResources() {
-        let completedSprites = [];
+        return new Promise((resolve, reject) => {
+            loadJson("./assets/config/resources.json").then(data => {
+                resources = data;
 
-        for (let sprite in sprites) {
-            // Make sure the property is part of the object and not from t
-            // prototype chain
-            if (sprites.hasOwnProperty(sprite)) {
-                completedSprites.push(preloadArrayOfMirrors(sprites[sprite], "img"));
-            }
-        }
+                let completedSprites = [];
+                for (let spritesheet in resources.sprites) {
 
-        Promise.all(completedSprites)
-            .then(([menu]) => {
-                this.menusprite = menu;
-            }).catch(reason => {
-                throw new Error(reason);
+                    // Make sure the property is part of the object and not from t
+                    // prototype chain
+                    if (resources.sprites.hasOwnProperty(spritesheet)) {
+                        // Urls to load per spritesheet
+                        const candidateUrls = resources.sprites[spritesheet].sources.mirrors.slice();
+                        candidateUrls.unshift(resources.sprites[spritesheet].sources.local);
+
+                        completedSprites.push(preloadArrayOfMirrors(candidateUrls, "img"));
+                    }
+                }
+
+                Promise.all(completedSprites).then(images => {
+                    this.menusprite = images[1];
+                    resolve();
+                }).catch(reason => {
+                    reject(reason);
+                });
             });
+        });
     }
 
     /**
      * Initializes a new game
      */
     start() {
-        // Add canvas to DOM as soon as it's ready
-        this.ctx.drawImage(this.menusprite, 596, 3041, this.resolution.w, this.resolution.h, 0, 0, this.canvas.width, this.canvas.height, );
         document.body.appendChild(this.canvas);
+
+        this.readyToStart.then(() => {
+            const loadingScreen = getResourceData(resources.sprites["main-menu"], "loading-screen");
+            this.ctx.drawImage(this.menusprite, ...loadingScreen.position, ...loadingScreen.size, 0, 0, this.canvas.width, this.canvas.height, );
+        });
     }
+}
+
+function getResourceData(namespace, element) {
+    return {
+        "position": namespace.elements[element].position,
+        "size": namespace.elements[element].size
+    };
 }
 
 const touhouGame = new GameInstance();

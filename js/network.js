@@ -1,3 +1,17 @@
+function loadJson(url) {
+    return new Promise((resolve, reject) => {
+        const xhttp = new XMLHttpRequest();
+        xhttp.addEventListener("load", function () {
+            resolve(JSON.parse(this.responseText));
+        });
+        xhttp.addEventListener("error", function () {
+            reject();
+        })
+        xhttp.open("GET", url);
+        xhttp.send();
+    });
+}
+
 /**
  * Standard image load using a Promise
  * @param {String} url
