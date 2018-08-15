@@ -1,7 +1,7 @@
 "use strict";
 let resources;
 
-class GameInstance {
+export class GameInstance {
     /**
      * Creates a Touhou game manager
      */
@@ -44,9 +44,9 @@ class GameInstance {
     preloadResources() {
         return new Promise((resolve, reject) => {
             loadJson("./assets/config/resources.json").then(data => {
+                let completedSprites = [];
                 resources = data;
 
-                let completedSprites = [];
                 for (let spritesheet in resources.sprites) {
 
                     // Make sure the property is part of the object and not from t
@@ -70,6 +70,19 @@ class GameInstance {
         });
     }
 
+    update(dt) {
+
+    }
+
+    draw() {
+
+    }
+
+    run(dt) {
+        this.update(dt);
+        this.draw();
+    }
+
     /**
      * Initializes a new game
      */
@@ -89,5 +102,3 @@ function getResourceData(namespace, element) {
         "size": namespace.elements[element].size
     };
 }
-
-const touhouGame = new GameInstance();

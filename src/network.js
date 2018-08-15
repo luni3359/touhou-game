@@ -8,6 +8,7 @@ function loadJson(url) {
             reject();
         })
         xhttp.open("GET", url);
+        xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
         xhttp.send();
     });
 }
@@ -59,3 +60,7 @@ function preloadArray(array, fn) {
 
     return mirrors;
 }
+
+module.exports = {
+
+};
