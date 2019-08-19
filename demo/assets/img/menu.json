@@ -1,0 +1,30 @@
+{
+    "frames": [
+        {
+            "filename": "loading_screen",
+            "frame": {
+                "x": 596,
+                "y": 3041,
+                "w": 640,
+                "h": 480
+            },
+            "anchor": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        {
+            "filename": "main_menu",
+            "frame": {
+                "x": 11,
+                "y": 2473,
+                "w": 640,
+                "h": 480
+            },
+            "anchor": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    ]
+}
