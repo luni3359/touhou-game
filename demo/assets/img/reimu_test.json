@@ -1,0 +1,46 @@
+{
+    "frames": [
+        {
+            "filename": "reimux0000",
+            "frame": {
+                "x": 484,
+                "y": 770,
+                "w": 64,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 44
+            }
+        },
+        {
+            "filename": "reimux0001",
+            "frame": {
+                "x": 510,
+                "y": 770,
+                "w": 64,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 1,
+                "y": 0,
+                "w": 26,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 44
+            }
+        }
+    ]
+}
