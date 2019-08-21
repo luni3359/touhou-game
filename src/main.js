@@ -58,7 +58,7 @@ function preload() {
     //#endregion
 
     this.load.setBaseURL('./assets/img');
-    this.load.atlas('reimu', 'reimu.png', 'reimu_test.json');
+    this.load.atlas('reimu', 'reimu.png', 'reimu.json');
 }
 
 var player, cursors;

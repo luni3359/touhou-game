@@ -1,17 +1,223 @@
 {
     "frames": [
         {
-            "filename": "idle",
+            "filename": "idle0000",
             "frame": {
-                "x": 4,
-                "y": 25,
-                "w": 26,
+                "x": 2,
+                "y": 26,
+                "w": 32,
                 "h": 44
             },
-            "anchor": {
-                "x": 0.5,
-                "y": 0.5
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "idle0001",
+            "frame": {
+                "x": 34,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "idle0002",
+            "frame": {
+                "x": 66,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "idle0003",
+            "frame": {
+                "x": 98,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "turning0000",
+            "frame": {
+                "x": 130,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "turning0001",
+            "frame": {
+                "x": 162,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "turning0002",
+            "frame": {
+                "x": 194,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "moving0000",
+            "frame": {
+                "x": 226,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "moving0001",
+            "frame": {
+                "x": 258,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
+            }
+        },
+        {
+            "filename": "moving0002",
+            "frame": {
+                "x": 290,
+                "y": 26,
+                "w": 32,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 44
             }
         }
-    ]
+    ],
+    "meta": {
+        "image": "reimu.png",
+        "format": "RGBA8888",
+        "size": {
+            "w": 1100,
+            "h": 956
+        },
+        "scale": "1"
+    }
 }
