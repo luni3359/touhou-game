@@ -1,13 +1,14 @@
-import * as Phaser from 'phaser';
+import Phaser from 'phaser';
 
 var config = {
     type: Phaser.AUTO,
     width: 640,
     height: 480,
+    // parent: "game-container", // ID of the DOM element to add the canvas to
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 200 },
+            gravity: { y: 0 },
             debug: false
         }
     },
@@ -60,16 +61,51 @@ function preload() {
     this.load.atlas('reimu', 'reimu.png', 'reimu_test.json');
 }
 
+var player, cursors;
 function create() {
-    // this.add.image(100, 100, 'reimu', 'idle');
-    let player = this.physics.add.image(100, 100, 'reimu', 'idle');
-    // let player = this.add.sprite(100, 100, 'reimu')
-    // player.anims.add('idle', Phaser.Animation.generateFrameNames('reimux', 0, 1, '', 4), 30, true);
-    // player.anims.play('idle');
-    player.setBounce(0.2);
+    cursors = this.input.keyboard.createCursorKeys();
+
+    this.anims.create({ key: 'idle', frames: this.anims.generateFrameNames('reimu', { prefix: 'idle', end: 3, zeroPad: 4 }), repeat: -1 });
+    this.anims.create({ key: 'turning', frames: this.anims.generateFrameNames('reimu', { prefix: 'turning', end: 2, zeroPad: 4 }), repeat: 0 });
+    this.anims.create({ key: 'moving', frames: this.anims.generateFrameNames('reimu', { prefix: 'moving', end: 2, zeroPad: 4 }), repeat: -1 });
+
+    player = this.physics.add.sprite(100, 100, 'reimu')
     player.setCollideWorldBounds(true);
+    // player.on('animationcomplete', (anim) => {
+    //     if (anim.key === 'turning') {
+    //         player.anims.play('moving');
+    //     }
+    // });
+
 }
 
-function update() {
+function update(time, delta) {
+    let playerVel = { x: 0, y: 0 };
 
+    if (cursors.left.isDown) {
+        playerVel.x -= 1;
+    }
+    if (cursors.right.isDown) {
+        playerVel.x += 1;
+    }
+
+    player.setVelocityX(playerVel.x);
+
+    if (playerVel.x != 0) {
+        player.flipX = playerVel.x > 0 ? true : false;
+        player.anims.play('turning', true);
+    } else {
+        player.anims.play('idle', true);
+    }
+
+    if (cursors.up.isDown) {
+        playerVel.y -= 1;
+    }
+    if (cursors.down.isDown) {
+        playerVel.y += 1;
+    }
+
+    player.setVelocityY(playerVel.y);
+
+    player.body.velocity.normalize().scale(160);
 }
