@@ -69,6 +69,8 @@ function create() {
     this.anims.create({ key: 'turning', frames: this.anims.generateFrameNames('reimu', { prefix: 'turning', end: 2, zeroPad: 4 }), frameRate: 18, repeat: 0 });
     this.anims.create({ key: 'moving', frames: this.anims.generateFrameNames('reimu', { prefix: 'moving', end: 2, zeroPad: 4 }), frameRate: 6, repeat: -1 });
 
+    this.add.image(0, 0, 'menu', 'main_menu');
+
     player = this.physics.add.sprite(100, 100, 'reimu')
     player.setCollideWorldBounds(true);
     player.on('animationcomplete', (anim) => {
@@ -78,7 +80,7 @@ function create() {
     });
 }
 
-let HOLDING = false;
+let movingDir = 0;
 function update(time, delta) {
     let playerVel = { x: 0, y: 0 };
 
@@ -89,20 +91,6 @@ function update(time, delta) {
         playerVel.x += 1;
     }
 
-    if (playerVel.x != 0) {
-        if (player.body.velocity.x > 0 && playerVel.x > 0 || player.body.velocity.x < 0 && playerVel.x < 0) {
-            HOLDING = true;
-        } else {
-            player.flipX = playerVel.x > 0 ? true : false;
-            player.anims.play('turning', true);
-        }
-    } else {
-        HOLDING = false;
-        player.anims.play('idle', true);
-    }
-
-    player.setVelocityX(playerVel.x);
-
     if (cursors.up.isDown) {
         playerVel.y -= 1;
     }
@@ -110,7 +98,20 @@ function update(time, delta) {
         playerVel.y += 1;
     }
 
-    player.setVelocityY(playerVel.y);
+    if (playerVel.x != 0) {
+        // if player is not still
+        if (movingDir != playerVel.x) {
+            // player is moving toward the same direction
+            movingDir = playerVel.x;
+            player.flipX = playerVel.x > 0 ? true : false;
+            player.anims.play('turning', true);
+        }
+    } else {
+        // player is still
+        movingDir = 0;
+        player.anims.play('idle', true);
+    }
 
+    player.setVelocity(playerVel.x, playerVel.y);
     player.body.velocity.normalize().scale(160);
 }
